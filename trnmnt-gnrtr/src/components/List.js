@@ -9,7 +9,7 @@ class List extends Component {
 				{players.count() > 0 ?
 					<ul>
 						{ players.map((player, index) => (
-							<Player player={player} key={index} />)
+							<Player player={player.get("name")} key={index} />)
 						)}
 					</ul>
 					: null

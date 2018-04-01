@@ -17,7 +17,7 @@ class Input extends Component {
 
 	add(e) {
 		e.preventDefault();
-		let player = this.state;
+		let player = this.state.player;
 		this.props.onClick(player);
 	}
 

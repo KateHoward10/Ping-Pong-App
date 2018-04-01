@@ -1,6 +1,17 @@
+import { Map } from "immutable";
 
-const addPlayer = (state, { player }) => state.update("players", players => (
-	players.push(player)
+let lastID = 0;
+
+const createPlayer = ({ player }) => {
+	lastID += 1;
+	return Map({
+		id: lastID,
+		name: player,
+	});
+};
+
+const addPlayer = (state, action) => state.update("players", players => (
+	players.push(createPlayer(action))
 ));
 
 const setPlayers = (state, { players }) => state.set("players", players);
