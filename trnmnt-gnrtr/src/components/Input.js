@@ -9,6 +9,7 @@ class Input extends Component {
 		}
 		this.update = this.update.bind(this);
 		this.add = this.add.bind(this);
+		this.generate = this.generate.bind(this);
 	}
 
 	update(e) {
@@ -18,7 +19,13 @@ class Input extends Component {
 	add(e) {
 		e.preventDefault();
 		let player = this.state.player;
-		this.props.onClick(player);
+		this.props.add(player);
+	}
+
+	generate() {
+		// e.preventDefault();
+		let { players } = this.props;
+		this.props.generate(players);
 	}
 
 	render() {

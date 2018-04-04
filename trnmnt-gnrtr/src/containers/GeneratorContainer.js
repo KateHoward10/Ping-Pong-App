@@ -1,16 +1,19 @@
 import { connect } from "react-redux";
 import Generator from '../components/Generator';
-import { addPlayer } from '../data/actions/actions';
+import { addPlayer, deletePlayer, generateMatches } from '../data/actions/actions';
 
 const mapStateToProps = state => {
 	return {
 		players: state.get("players"),
+		matches: state.get("matches"),
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onClick: ( player ) => dispatch(addPlayer(player)),
+		add: ( player ) => dispatch(addPlayer(player)),
+		delete: ( id ) => dispatch(deletePlayer(id)),
+		generate: ( players ) => dispatch(generateMatches(players)),
 	};
 };
 

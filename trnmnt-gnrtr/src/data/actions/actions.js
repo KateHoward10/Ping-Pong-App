@@ -1,4 +1,11 @@
 
+export const setPlayers = players => {
+    return {
+        type: "setPlayers",
+        players: players,
+    };
+};
+
 export const addPlayer = player => {
     return {
         type: "addPlayer",
@@ -6,9 +13,16 @@ export const addPlayer = player => {
     };
 };
 
-export const setPlayers = players => {
+export const deletePlayer = (id) => {
     return {
-        type: "setPlayers",
-        players: players,
+        type: "deletePlayer",
+        id: id,
     };
 };
+
+export const generateMatches = players => {
+    return {
+        type: "generateMatches",
+        players: players,
+    }
+}
