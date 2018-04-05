@@ -10,29 +10,22 @@ const createPlayer = ({ player }) => {
 	});
 };
 
-const randomise = ( players ) => {
-	let currentIndex = players.length, temporaryValue, randomIndex;
-	while (0 !== currentIndex) {
-		randomIndex = Math.floor(Math.random() * currentIndex);
-		currentIndex -= 1;
-		temporaryValue = players[currentIndex];
-		players[currentIndex] = players[randomIndex];
-		players[randomIndex] = temporaryValue;
-	}
-	return players;
+const createMatches = (players) => {
+	players.reduce(function(result, value, index, array) {
+  	if (index % 2 === 0)
+	    result.push(array.slice(index, index + 2));
+	  return result;
+	}, []);
+	// let index = 0;
+	// let array = [];
+	// while (index < players.size) {
+	// 	array.push(List({players.get(index), players.get(index+1)}),
+	// 	});
+	// }
+	// index=index+2;
+	// return array;
 }
 
-const createMatches = ({ players, matches }) => {
-	for (let i=0; i<players.length; i=i+2) {
-		return Map({
-			a: players[i],
-			b: players[i+1],
-		});
-	}	
-}
-
-
-const setPlayers = (state, { players }) => state.set("players", players);
 
 const addPlayer = (state, action) => state.update("players", players => (
 	players.push(createPlayer(action))
@@ -40,15 +33,17 @@ const addPlayer = (state, action) => state.update("players", players => (
 
 const deletePlayer = (state, {id}) => state.update("players", players => players.filter(player => player.get("id") !== id));
 
-const generateMatches = (state, action) => {
-	state.update("players", players => (randomise(players)));
-	state.update("matches", matches => (
-		matches.push(createMatches(action))));
-};
+const generateMatches = (state, action) => state.update(
+	"players", players => players.sortBy(Math.random)
+	
+	// Shuffle the list of players
+	
+	// ("players", players => players.sortBy(Math.random));
+	// state.update("matches", matches => matches.push(Map({id: 5, name: "Kate"})));	
+);
 
 const reducer = (state, action) => {
 	switch (action.type) {
-		case "setPlayers": return setPlayers(state, action);
 		case "addPlayer": return addPlayer(state, action);
 		case "deletePlayer": return deletePlayer(state, action);
 		case "generateMatches": return generateMatches(state, action);

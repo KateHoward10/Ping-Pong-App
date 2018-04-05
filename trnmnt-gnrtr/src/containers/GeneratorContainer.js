@@ -13,7 +13,7 @@ const mapDispatchToProps = dispatch => {
 	return {
 		add: ( player ) => dispatch(addPlayer(player)),
 		delete: ( id ) => dispatch(deletePlayer(id)),
-		generate: ( players ) => dispatch(generateMatches(players)),
+		generate: () => dispatch(generateMatches()),
 	};
 };
 
