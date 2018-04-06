@@ -11,7 +11,7 @@ class Generator extends Component {
 			tournament: false,
 			// check whether number of players is a power of 2
 			// {(Math.log(this.props.players.count())/Math.log(2)) % 1 !== 0 ? "btn btn-info disabled" : "btn btn-info"}
-			disabled: (Math.log(this.props.players.count())/Math.log(2)) % 1 !== 0,
+			showGenerate: true,
 		}
 		this.generate = this.generate.bind(this);
 	}
@@ -24,13 +24,15 @@ class Generator extends Component {
 	}
 
 	render() {
+		const {showGenerate, winnersSelected} = this.state;
 		return (
-			    
 			<div>
-				<Input add={this.props.add} generate={this.props.generate}/>
-			    <Button onClick={this.generate} className="btn btn-info" buttonName="Generate Tournament"/>
-			    <List players={this.props.players} delete={this.props.delete}/>
-				<Tournament players={this.props.players} display={this.state.tournament}/>
+				<Input add={this.props.add}/>
+				{showGenerate ? 
+			    	<Button onClick={this.generate} className="btn btn-info" buttonName="Generate Tournament"/>
+				: null}
+			    <List players={this.props.players} delete={this.props.delete} nodisplay={this.state.tournament}/>
+				<Tournament generateRound={this.props.generateRound} addWinner={this.props.addWinner} players={this.props.players} newPlayers={this.props.newPlayers} display={this.state.tournament} />
 			</div>
 		);
 	}

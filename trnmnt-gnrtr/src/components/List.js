@@ -3,10 +3,10 @@ import Player from './Player';
 
 class List extends Component {	
 	render() {
-		const { players } = this.props;
+		const { players, nodisplay } = this.props;
 		return (
 			<div>
-				{players.count() > 0 ?
+				{!nodisplay && players.count() > 0 ?
 					<div>
 						<h2>Players:</h2>
 						<ul>

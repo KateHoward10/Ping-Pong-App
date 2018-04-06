@@ -3,8 +3,8 @@ import { Map, List } from "immutable";
 const initial = Map({
 	players: List([
 		]),
-	matches: List([
-		]),
+	newPlayers: List([
+		])
 });
 
 export default initial;
