@@ -7,6 +7,7 @@ class App extends Component {
       <div className="App">
         <h1 className="App-title">Ping Pong Tournament Generator</h1>
         <p>Enter your players' names and then generate your tournament structure.</p>
+        <p>(The number of players must be a power of 2!)</p>
         <GeneratorContainer />
       </div>
     );

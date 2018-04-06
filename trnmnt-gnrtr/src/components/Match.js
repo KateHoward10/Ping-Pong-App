@@ -13,20 +13,24 @@ class Match extends Component {
 
 	aWins() {
 		const { pair } = this.props;
-		const winner = pair.get(0);
-		this.setState ({
-			winner: winner,
-		})
-		this.props.addWinner(winner);
+		if (this.state.winner === "") {
+			const winner = pair.get(0);
+			this.setState ({
+				winner: winner,
+			});
+			this.props.addWinner(winner);
+		}
 	}
 
 	bWins() {
 		const { pair } = this.props;
-		const winner = pair.get(1);
-		this.setState ({
-			winner: winner,
-		})
-		this.props.addWinner(winner);
+		if (this.state.winner === "") {
+			const winner = pair.get(1);
+			this.setState ({
+				winner: winner,
+			})
+			this.props.addWinner(winner);
+		}
 	}
 	
 

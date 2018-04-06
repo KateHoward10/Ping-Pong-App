@@ -1,6 +1,10 @@
 .App {
   text-align: center;
-  background-image: url("/img/ping-pong.jpg");
+  background-image: url("./img/ping-pong.jpg");
+}
+
+h1 {
+  color: blue;
 }
 
 .App-logo {
@@ -17,6 +21,7 @@
 
 .App-title {
   font-size: 1.5em;
+  color: blue;
 }
 
 .App-intro {
