@@ -26,9 +26,14 @@ export const addWinner = (winner) => {
     }
 }
 
-export const generateRound = (winners) => {
+export const resetWinners = () => {
+    return {
+        type: "resetWinners",
+    }
+}
+
+export const generateRound = () => {
     return {
         type: "generateRound",
-        newPlayers: winners,
     }
 }

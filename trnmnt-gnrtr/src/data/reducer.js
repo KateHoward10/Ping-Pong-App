@@ -1,4 +1,4 @@
-import { Map } from "immutable";
+import { Map, List } from "immutable";
 
 let lastID = 0;
 const createPlayer = ({ player }) => {
@@ -15,17 +15,16 @@ const addPlayer = (state, action) => state.update("players", players => (players
 // Remove player from the array using their id
 const deletePlayer = (state, {id}) => state.update("players", players => players.filter(player => player.get("id") !== id));
 
-// Shuffle the list of players	
-const generateMatches = (state, action) => state.update("players", players => players.sortBy(Math.random));
+// Shuffle the list of players and add this array to matches
+const generateMatches = (state, action) => state.update("matches", matches => matches.push(state.get("players").sortBy(Math.random)));
 
 // Players is currently an array of pairs - reduces the array to just winners
-const addWinner = (state, {winner}) => state.update("newPlayers", newPlayers => newPlayers.push(winner));
-	// players.reduce(function(result, value) {
-// 	result.push(winner);
-// 	return result;
-// }, []));
+const addWinner = (state, {winner}) => state.update("winners", winners => winners.push(winner));
 
-const generateRound = (state, {newPlayers}) => state.update("newPlayers", newPlayers => newPlayers.sortBy(Math.random));
+// Clear the winners array to get ready for the next round
+const resetWinners = (state, action) => state.update("winners", winners => List([]));
+
+const generateRound = (state, action) => state.update("matches", matches => matches.push(state.get("winners").sortBy(Math.random)));
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -33,6 +32,7 @@ const reducer = (state, action) => {
 		case "deletePlayer": return deletePlayer(state, action);
 		case "generateMatches": return generateMatches(state, action);
 		case "addWinner": return addWinner(state, action);
+		case "resetWinners": return resetWinners(state, action);
 		case "generateRound": return generateRound(state, action);
 		default: return state;
 	}

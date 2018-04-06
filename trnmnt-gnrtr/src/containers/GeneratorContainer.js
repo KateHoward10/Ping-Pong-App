@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import Generator from '../components/Generator';
-import { addPlayer, deletePlayer, generateMatches, addWinner, generateRound } from '../data/actions/actions';
+import { addPlayer, deletePlayer, generateMatches, addWinner, resetWinners, generateRound } from '../data/actions/actions';
 
 const mapStateToProps = state => {
 	return {
 		players: state.get("players"),
-		newPlayers: state.get("newPlayers"),
+		matches: state.get("matches"),
+		winners: state.get("winners"),
 	};
 };
 
@@ -15,7 +16,8 @@ const mapDispatchToProps = dispatch => {
 		delete: ( id ) => dispatch(deletePlayer(id)),
 		generate: () => dispatch(generateMatches()),
 		addWinner: (winner) => dispatch(addWinner(winner)),
-		generateRound: (newPlayers) => dispatch(generateRound(newPlayers)),
+		resetWinners: () => dispatch(resetWinners()),
+		generateRound: () => dispatch(generateRound()),
 	};
 };
 

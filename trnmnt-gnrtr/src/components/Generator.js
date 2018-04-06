@@ -24,15 +24,15 @@ class Generator extends Component {
 	}
 
 	render() {
-		const {showGenerate, winnersSelected} = this.state;
+		const {showGenerate, tournament} = this.state;
 		return (
 			<div>
 				<Input add={this.props.add}/>
+			    <List players={this.props.players} delete={this.props.delete}/>
 				{showGenerate ? 
-			    	<Button onClick={this.generate} className="btn btn-info" buttonName="Generate Tournament"/>
+			    	<Button onClick={this.generate} className="btn btn-info" buttonName="Generate first round"/>
 				: null}
-			    <List players={this.props.players} delete={this.props.delete} nodisplay={this.state.tournament}/>
-				<Tournament generateRound={this.props.generateRound} addWinner={this.props.addWinner} players={this.props.players} newPlayers={this.props.newPlayers} display={this.state.tournament} />
+				<Tournament generateRound={this.props.generateRound} addWinner={this.props.addWinner} resetWinners={this.props.resetWinners} players={this.props.players} matches={this.props.matches} tournament={tournament} />
 			</div>
 		);
 	}
