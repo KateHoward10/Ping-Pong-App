@@ -1,34 +1,28 @@
 .App {
   text-align: center;
+  background-color: #3281D0;
   background-image: url("./img/ping-pong.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  padding: 2vw;
 }
 
-h1 {
-  color: blue;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.list {
+  height: 80vh;
 }
 
 .App-title {
   font-size: 1.5em;
-  color: blue;
+  color: #fff;
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
 }
+
