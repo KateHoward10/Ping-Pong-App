@@ -31,6 +31,9 @@ button {
 }
 
 .App-title {
+  -webkit-text-fill-color: #F7F8E0;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
   color: #F7F8E0;
   font-family: OctinSports, sans-serif;
   font-size: 10vw;
@@ -76,7 +79,7 @@ body {
   }
 
   .App-intro {
-    padding: 5vw;
+    padding-bottom: 20vw;
     font-size: 4vw;
   }
 
@@ -99,7 +102,6 @@ body {
 
   .App-intro {
     font-size: 2vw;
-    padding-bottom: 10vw;
   }
 
   .App-header {
