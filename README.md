@@ -38,8 +38,8 @@ With ten full days in which to complete the challenge, my plan was to follow the
 7. Write up.
 8. Upload.
 
-![Planning notes](trnmnt-gnrtr/src/img/trnmnt-wrfrmng.png)
-![Planning notes](trnmnt-gnrtr/src/img/trnmnt-strctr.png)
+![Planning notes](trnmnt-gnrtr/src/img/trnmnt-wrfrmng.jpg)
+![Planning notes](trnmnt-gnrtr/src/img/trnmnt-strctr.jpg)
 
 
 ## Progress
