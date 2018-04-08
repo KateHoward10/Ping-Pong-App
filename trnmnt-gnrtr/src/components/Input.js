@@ -25,7 +25,7 @@ class Input extends Component {
 
 	render() {
 		return (
-			<form className="playerAdd" className="form-group d-flex flex-direction-row align-items-center justify-content-center" >
+			<form className="playerAdd form-group d-flex flex-direction-row align-items-center justify-content-center" >
 			    <input className="form-control" type="text" onChange={this.update}/>
 			    <Button onClick={this.add} className="btn btn-danger" buttonName="Add player"/>
 			</form>
