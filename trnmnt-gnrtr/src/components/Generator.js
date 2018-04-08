@@ -22,14 +22,17 @@ class Generator extends Component {
 
 	render() {
 		const {players} = this.props;
+		// Displays input to take players' names, lists out players if there are any
+		// If number of players is valid, Generate first round button appears
+		// The Tournament component displays any rounds as they are generated
 		return (
 			<div>
 				<Input add={this.props.add} players={players}/>
-			    <div className="list">
+			    <div className="list container">
 				{players.count() > 0 ?
 					<div>
 						<h2>Players:</h2>
-						<ul>
+						<ul className="playerList">
 							{ players.map((player, index) => (
 								<Player name={player.get("name")} id={player.get("id")} delete={this.props.delete} key={index} />)
 							)}
@@ -38,7 +41,7 @@ class Generator extends Component {
 					: null
 					}
 				{players.count() > 1 && (Math.log(players.count())/Math.log(2)) % 1 === 0 ? 
-			    	<Button onClick={this.generate} className="btn btn-info" buttonName="Generate first round"/>
+			    	<Button onClick={this.generate} className="btn btn-danger" buttonName="Generate first round"/>
 					: null
 				}
 				</div>

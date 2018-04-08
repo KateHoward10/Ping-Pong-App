@@ -1,28 +1,111 @@
-.App {
-  text-align: center;
-  background-color: #3281D0;
-  background-image: url("./img/ping-pong.jpg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  padding: 2vw;
+
+@font-face {
+  font-family: OctinSports;
+  src: url(./fonts/octin-sports-free/octin-sports-rg.ttf);
 }
 
-.list {
-  height: 80vh;
+@font-face {
+  font-family: OctinCollege;
+  src: url(./fonts/octin-college-free/octin-college-rg.ttf);
+}
+
+.App {
+  text-align: center;
+  font-family: OctinCollege, sans-serif;
+  background-color: #3281D0;
+  padding: 5vw;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  height: 10vh;
+}
+
+button {
+  margin: 2vw;
 }
 
 .App-title {
-  font-size: 1.5em;
-  color: #fff;
+  color: #F7F8E0;
+  font-family: OctinSports, sans-serif;
+  font-size: 10vw;
 }
 
 .App-intro {
-  font-size: large;
+  color: #000099;
+  font-size: 5vw;
+}
+
+form {
+  padding: 10vh 0;
+}
+
+.form-control {
+  width: 80vw;
+  height: 10vh;
+}
+
+.player {
+  font-size: 4vh;
+  padding: 0 5vw;
+}
+
+.round {
+  margin: 10vw 0;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+
+/*Styling for screens larger than a mobile*/
+@media screen and (min-width: 420px) {
+
+  .App-title {
+    background-image: url("./img/ping-pong.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .App-intro {
+    padding: 5vw;
+    font-size: 4vw;
+  }
+
+  .form-control {
+    width: 50vw;
+  }
+
+  .playerList {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/*Wider screens*/
+@media screen and (min-width: 700px) {
+  .App-title {
+    background-image: none;
+    font-size: 7vw;
+  }
+
+  .App-intro {
+    font-size: 2vw;
+    padding-bottom: 10vw;
+  }
+
+  .App-header {
+    background-image: url("./img/ping-pong.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
 }
 

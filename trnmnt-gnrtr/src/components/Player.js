@@ -15,9 +15,9 @@ class Player extends Component {
 	render() {
 		const { name } = this.props;
 		return (
-			<li className="list-group-item d-flex justify-content-between align-items-center">
+			<li className="player d-flex align-items-center">
 				{name}
-				<Button onClick={this.delete} buttonName={"x"} className={ "btn btn-danger" }/>
+				<Button onClick={this.delete} buttonName={"x"} className={ "btn-sm" }/>
 			</li>
 		);
 	}

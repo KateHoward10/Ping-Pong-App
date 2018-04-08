@@ -11,11 +11,12 @@ class Input extends Component {
 		this.add = this.add.bind(this);
 	}
 
-
+	// Updates name of player in local state as it is inputted
 	update(e) {
 		this.setState ({ player: e.target.value })
 	}
 
+	// Passes in name as an argument to the add function
 	add(e) {
 		e.preventDefault();
 		const player = this.state.player;
@@ -24,9 +25,9 @@ class Input extends Component {
 
 	render() {
 		return (
-			<form className="form-group d-flex flex-direction-row" style={{justifyContent: 'center'}} >
+			<form className="playerAdd" className="form-group d-flex flex-direction-row align-items-center justify-content-center" >
 			    <input className="form-control" type="text" onChange={this.update}/>
-			    <Button onClick={this.add} className="btn btn-primary" buttonName="Add player"/>
+			    <Button onClick={this.add} className="btn btn-danger" buttonName="Add player"/>
 			</form>
 		)
 	}

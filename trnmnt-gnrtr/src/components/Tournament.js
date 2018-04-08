@@ -16,12 +16,15 @@ class Tournament extends Component {
 
 	render() {
 		const {tournament, matches, winners} = this.props;
+		// If the Generate first round button has been selected, iterate through the matches array and display each round
+		// If only two players in the round, it is the final and no further rounds can be generated
+		// Each round is reduced to an array of randomised pairs, to play each other
 		return (
 			<div>
 				{tournament ?
-					matches.map((match, index) =>
-						<div key={index}>
-						{ match.count() === 2 ?
+					matches.map((round, index) =>
+						<div className="round" key={index}>
+						{ round.count() === 2 ?
 							<h2><span role="img" aria-label="ping pong bat emoji">🏓</span> Final <span role="img" aria-label="ping pong bat emoji">🏓</span></h2>
 							: <div>
 								<h2><span role="img" aria-label="ping pong bat emoji">🏓</span> Round {index+1} <span role="img" aria-label="ping pong bat emoji">🏓</span></h2>
@@ -29,15 +32,15 @@ class Tournament extends Component {
 							</div>
 						}
 						<ul>
-							{match.reduce(function(result, value, index, array) {
+							{round.reduce(function(result, value, index, array) {
 						  	if (index % 2 === 0)
 							    result.push(array.slice(index, index + 2));
 							  	return result;
 							}, []).map((pair, index) =>
 							<Match pair={pair} addWinner={this.props.addWinner} key={index}/>)}
 						</ul>
-						{match.count() === 2 ? null :
-							<Button onClick={this.generateRound} className="btn btn-info" buttonName="Generate Next Round"/>
+						{round.count() === 2 ? null :
+							<Button onClick={this.generateRound} className="btn btn-danger" buttonName="Generate Next Round"/>
 						}
 					</div>
 					)

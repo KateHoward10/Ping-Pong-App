@@ -11,6 +11,8 @@ class Match extends Component {
 		this.bWins = this.bWins.bind(this);
 	}
 
+	// These two functions set the winner in local state to the corresponding player
+	// They only work if winner has not been set already, preventing both players being selected
 	aWins() {
 		const { pair } = this.props;
 		if (this.state.winner === "") {
