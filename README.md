@@ -6,11 +6,9 @@ This is my attempt at the technical challenge set by DevelopMe at the end of the
 ## How to get the app working
 Required: yarn, command line
 1. Clone this repo: in the command line run ```git clone git@github.com:KateHoward10/Ping-Pong-App.git```
-2. Navigate into ping-pong-app/trnmnt-gnrtr
-3. Run ```yarn install```
+2. Navigate into ping-pong-app/
+3. Run ```yarn``` to install node_modules
 4. Run ```yarn start```
-
-The live app is available on my DevelopMe workspace at http://kate.developme.space
 
 
 ## The brief
